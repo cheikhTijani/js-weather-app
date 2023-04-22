@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/style.css">
+    <script defer src="./assets/bootstrap.bundle.min.js"></script>
+    <script defer type="module" src="./weather.js"></script>
+    <script defer type="module" src="./ui.js"></script>
+    <script defer type="module" src="./app.js"></script>
+    <title>Weather Today</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto text-center bg-light rounded mt-3 p-3">
+                <h1 id="title" class="fw-light text-uppercase fs-4">Weather Today</h1>
+                <h2 class="fw-light text-uppercase fs-4" id="location"></h2>
+                <h4 id="desc" class="fw-light text-uppercase fs-6"></h4>
+                <h4 id="temp" class="fw-light text-uppercase fs-4"></h4>
+                <img src="./assets/loading.gif" id="loading" class="img-fluid d-block mx-auto" alt="loading...">
+                <div class="bg-info d-inline-block rounded">
+                    <img id="icon">
+                </div>
+                <ul class="list-group mt-3 d-none" id="details">
+                    <li class="list-group-item" id="feels-like"></li>
+                    <li class="list-group-item" id="humidity"></li>
+                    <li class="list-group-item" id="visibility"></li>
+                    <li class="list-group-item" id="wind"></li>
+                    <li class="list-group-item" id="sunrise"></li>
+                    <li class="list-group-item" id="sunset"></li>
+                </ul>
+                <button type="button" class="btn btn-dark text-uppercase mt-3" data-bs-toggle="modal" data-bs-target="#locModal">
+                    Change Location
+                  </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="locModal" tabindex="-1" aria-labelledby="locModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="locModalLabel">Choose Location</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="w-form">
+                    <div class="mb-3">
+                        <label for="city" class="form-label">City</label>
+                        <input type="text" class="form-control" id="city">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-dark text-uppercase fw-light" data-bs-dismiss="modal">Close</button>
+            <button id="change-city" type="button" class="btn btn-info text-uppercase fw-light" data-bs-dismiss="modal">Set Location</button>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
